@@ -1,0 +1,27 @@
+*{
+  margin:0;
+  padding:0;
+}
+ul{
+  list-style:none;
+}
+div#contents{
+}
+div#header{
+  background-color:green;
+  height:80px;
+  padding:10px;
+}
+div#container{
+}
+div#main{
+  height:auto;
+  min-height:300px;
+  padding:10px;
+}
+div#footer{
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  background-color:green;
+}

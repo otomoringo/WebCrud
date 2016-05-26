@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+  <formset>
+        <!-- Home.jsp -->
+        <form name="loginForm">
+            <field property="systemId"
+                   depends="required,integer">
+                <arg name="required" key="labels.systemId" position="0"/>
+                <arg name="integer" key="labels.systemId" position="0"/>
+            </field>
+            <field property="systemPassword"
+                   depends="required,mask">
+                <arg name="required" key="labels.systemPassword" position="0"/>
+                <arg name="mask" key="labels.systemPassword" position="0"/>
+                   <var>
+                          <var-name>mask</var-name>
+                          <var-value>^[0-9a-zA-Z]*$</var-value>
+                   </var>
+            </field>
+        </form>
+
+        <!-- Lesson03 Question01 -->
+        <form name="employeeValidatorForm">
+            <field property="empPass"
+                   depends="required,integer">
+                <arg name="required" key="labels.empPass" position="0"/>
+                <arg name="integer" key="labels.empPass" position="0"/>
+            </field>
+            <field property="empName"
+                   depends="required">
+                <arg name="required" key="labels.empName" position="0"/>
+            </field>
+            <field property="birthday"
+                   depends="date">
+                <arg name="date" key="labels.birthday" position="0"/>
+            </field>
+        </form>
+
+        <!-- Lesson03 Question02 -->
+        <form name="registDynaValidatorForm">
+            <field property="name"
+                   depends="required">
+                <arg name="required" key="labels.name" position="0"/>
+            </field>
+            <field property="zip"
+                   depends="mask">
+                <arg name="mask" key="labels.zip" position="0"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\d{3}-\d{4}$</var-value>
+                </var>
+            </field>
+            <field property="address"
+                   depends="required">
+                <arg name="required" key="labels.address" position="0"/>
+            </field>
+            <field property="mail"
+                   depends="email">
+                <arg name="email" key="labels.mail" position="0"/>
+            </field>
+        </form>
+  </formset>
+</form-validation>
