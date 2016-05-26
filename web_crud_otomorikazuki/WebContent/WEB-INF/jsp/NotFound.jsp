@@ -32,7 +32,7 @@
   </p>
 
   <p>該当する社員は存在しません。</p>
-      <html:form action="notFound.do" method="post">
+      <html:form action="login.do" method="post">
         <html:submit>一覧表示に戻る</html:submit>
       </html:form>
 
