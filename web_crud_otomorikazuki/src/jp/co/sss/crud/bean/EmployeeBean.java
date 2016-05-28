@@ -1,5 +1,8 @@
 package jp.co.sss.crud.bean;
 
+/**
+ * @author otomorikazuki 社員情報のBeanをまとめるためのクラス
+ */
 public class EmployeeBean {
     int empId;
     String empPass;

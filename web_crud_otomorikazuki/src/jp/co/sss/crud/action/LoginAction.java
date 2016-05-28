@@ -14,31 +14,47 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+/**
+ * @author otomorikazuki ログインするときのActionクラス
+ *
+ */
 public class LoginAction extends Action {
+    /**
+     * ユーザIDとパスワードが一致したら、struts-configファイルのsuccessに遷移する
+     * そうでなければ、エラーメッセージを表示するfailedに遷移する
+     */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+        HttpServletRequest request, HttpServletResponse response)
+        throws Exception {
 
-        LoginForm loginForm = (LoginForm) form;
+        try {
+            LoginForm loginForm = (LoginForm) form;
 
-        int userId = Integer.parseInt(loginForm.getSystemId());
-        String password = loginForm.getSystemPassword();
+            int userId = Integer.parseInt(loginForm.getSystemId());
+            String password = loginForm.getSystemPassword();
 
-        EmployeeBean employeeBean = EmployeeDao.findEmployeeById(userId);
+            EmployeeBean employeeBean = EmployeeDao.findEmployeeById(userId);
 
-        if (password.equals(employeeBean.getEmpPass())) {
-            // セッションに登録しておく
-            // session.setAttribute("id", userId);
-            // session.setAttribute("password", password);
+            if (password.equals(employeeBean.getEmpPass())) {
+                // セッションに登録しておく
+                // session.setAttribute("id", userId);
+                // session.setAttribute("password", password);
 
-            List<EmployeeBean> list = EmployeeDao.findEmployeeAll();
-            request.setAttribute("employeeList", list);
+                List<EmployeeBean> list = EmployeeDao.findEmployeeAll();
+                request.setAttribute("employeeList", list);
 
-            return mapping.findForward("success");
-        } else {
+                return mapping.findForward("success");
+            } else {
+                String errorMessage = "ID、パスワードが違います。";
+                request.setAttribute("errorMessage", errorMessage);
+                return mapping.findForward("failed");
+            }
+
+        } catch (Exception e) {
             String errorMessage = "ID、パスワードが違います。";
             request.setAttribute("errorMessage", errorMessage);
             return mapping.findForward("failed");
         }
+
     }
 }

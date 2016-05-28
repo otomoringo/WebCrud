@@ -11,7 +11,6 @@
 <title>ログイン画面</title>
 </head>
 <body>
-  <h2>ログイン画面</h2>
   <html:form action="login.do" method="post">
     <p>
       社員ID：

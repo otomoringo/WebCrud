@@ -5,8 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.ValidatorForm;
 
+/**
+ * @author otomorikazuki 社員情報のFormをまとめるためのクラス
+ */
 public class EmployeeForm extends ValidatorForm {
 
+    /**
+     * クラスのバージョンを識別するための番号
+     */
     private static final long serialVersionUID = 1L;
 
     private String empId = null;
@@ -91,6 +97,9 @@ public class EmployeeForm extends ValidatorForm {
         this.select = select;
     }
 
+    /*
+     * (非 Javadoc) ラジオボタンの初期値を設定する関数reset
+     */
     public void reset(ActionMapping mapping, HttpServletRequest request) {
         setSelect("1");
     }

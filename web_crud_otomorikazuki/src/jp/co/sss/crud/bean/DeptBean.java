@@ -1,5 +1,9 @@
 package jp.co.sss.crud.bean;
 
+/**
+ * @author otomorikazuki 部署情報のBeanをまとめるためのクラス
+ * 
+ */
 public class DeptBean {
     int deptId;
     String deptName;

@@ -8,10 +8,16 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+/**
+ * @author otomorikazuki welcome-fileを表示するためのActionクラス
+ */
 public class WelcomeAction extends Action {
+    /**
+     * struts-configファイルのwelcomeに遷移する
+     */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+        HttpServletRequest request, HttpServletResponse response)
+        throws Exception {
         return mapping.findForward("welcome");
     }
 }

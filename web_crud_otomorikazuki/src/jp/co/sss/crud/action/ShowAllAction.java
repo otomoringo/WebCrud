@@ -1,7 +1,12 @@
 package jp.co.sss.crud.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import jp.co.sss.crud.bean.EmployeeBean;
+import jp.co.sss.crud.dao.EmployeeDao;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -9,16 +14,19 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 /**
- * @author otomorikazuki 検索して社員が見つからないときのActionクラス
- *
+ * @author otomorikazuki 社員一覧画面に遷移するActionクラス
  */
-public class NotFoundAction extends Action {
+public class ShowAllAction extends Action {
     /**
-     * struts-configファイルのnotFoundに遷移する
+     * 登録されている全ての社員を保持し、struts-configファイルのshowAllに遷移する
      */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
         HttpServletRequest request, HttpServletResponse response)
         throws Exception {
-        return mapping.findForward("notFound");
+
+        List<EmployeeBean> list = EmployeeDao.findEmployeeAll();
+        request.setAttribute("employeeList", list);
+
+        return mapping.findForward("showAll");
     }
 }

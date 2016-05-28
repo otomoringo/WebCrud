@@ -32,6 +32,20 @@
                  <put name="main" value="/WEB-INF/jsp/NotFound.jsp"/>
          </definition>
 
+         <definition name="deleteLayout"
+                          extends="homeLayout">
+                 <put name="title" value="社員削除確認画面"/>
+                 <put name="header" value="/WEB-INF/jsp/layout/MainHeader.jsp"/>
+                 <put name="main" value="/WEB-INF/jsp/Delete.jsp"/>
+         </definition>
+
+         <definition name="deleteCompleteLayout"
+                          extends="homeLayout">
+                 <put name="title" value="社員削除完了画面"/>
+                 <put name="header" value="/WEB-INF/jsp/layout/MainHeader.jsp"/>
+                 <put name="main" value="/WEB-INF/jsp/DeleteComplete.jsp"/>
+         </definition>
+
     <!-- sample tiles definitions
     <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
         <put name="title"  value="Sample Page Title" />

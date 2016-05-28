@@ -12,8 +12,10 @@
 </head>
 <body>
   <div id="header">
-    <tiles:getAsString name="title" />
     <tiles:insert attribute="header" />
+    <p id="title">
+      <tiles:getAsString name="title" />
+    </p>
   </div>
   <div id="main">
     <tiles:insert attribute="main" />

@@ -10,7 +10,6 @@
 <title>社員一覧表示画面</title>
 </head>
 <body>
-  <h2>社員一覧表示画面</h2>
   <p>
     検索条件
     <html:form action="find.do" method="post">
@@ -23,6 +22,7 @@
       <html:radio property="select" value="3"></html:radio>
       部署名：
       <html:select property="deptId">
+        <html:option value="0">&nbsp;</html:option>
         <html:option value="1">営業部</html:option>
         <html:option value="2">経理部</html:option>
         <html:option value="3">総務部</html:option>
@@ -32,10 +32,9 @@
   </p>
 
   <p>該当する社員は存在しません。</p>
-      <html:form action="login.do" method="post">
-        <html:submit>一覧表示に戻る</html:submit>
-      </html:form>
-
+  <html:form action="showAll.do" method="post">
+    <html:submit>一覧表示に戻る</html:submit>
+  </html:form>
 
 </body>
 </html>
