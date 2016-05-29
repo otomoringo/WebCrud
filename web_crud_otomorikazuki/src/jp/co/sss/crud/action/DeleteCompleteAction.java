@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.sss.crud.dao.EmployeeDao;
+import jp.co.sss.crud.form.EmployeeForm;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -21,9 +22,10 @@ public class DeleteCompleteAction extends Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         try {
-            System.out.println(request.getAttribute("empId"));
+            EmployeeForm employeeForm = (EmployeeForm) form;
+            int userId = Integer.parseInt(employeeForm.getEmpId());
 
-//            EmployeeDao.deleteEmployee();
+            EmployeeDao.deleteEmployee(userId);
             return mapping.findForward("deleteComplete");
         } catch (Exception e) {
             return mapping.findForward("failed");
